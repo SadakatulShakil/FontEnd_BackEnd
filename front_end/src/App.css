@@ -51,7 +51,7 @@
   border-radius: 8px;
   padding: 16px;
   margin: 8px;
-  width: calc(33.33% - 16px); /* Adjust the width as per your requirement */
+  width: calc(30% - 16px); /* Adjust the width as per your requirement */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
