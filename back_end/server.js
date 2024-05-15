@@ -9,6 +9,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 
+///CORS function added
 app.use(cors());
 ///Middleware for API
 
