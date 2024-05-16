@@ -1,61 +1,214 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  background: #dfe9f5;
+}
+.container {
+  display: flex;
+}
+nav {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  background: #dfe9f5;
+  width: 300px;
+  overflow: hidden;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul li {
+  padding: 2px;
+}
+.logo {
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+a {
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+nav .fas {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.nav-item {
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+a:hover {
+  background: #eee;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logout {
+  position: absolute;
+  bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Main Section */
+.main {
+  position: relative;
+  padding: 10px;
+  width: 100%;
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.card-container {
+.main-top {
   display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+}
+.main-top i {
+  position: absolute;
+  right: 0;
+  margin: 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main-skills {
+  display: flex;
+  margin-top: 20px;
+}
+.main-skills .card {
+  width: 25%;
+  margin: 10px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.main-skills .card h3 {
+  margin: 10px;
+  text-transform: capitalize;
+}
+.main-skills .card p {
+  font-size: 12px;
+}
+.main-skills .card button {
+  background: orangered;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.main-skills .card button:hover {
+  background: rgba(223, 70, 15, 0.856);
+}
+.main-skills .card i {
+  font-size: 22px;
+  padding: 10px;
 }
 
-.card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 8px;
-  width: calc(30% - 16px); /* Adjust the width as per your requirement */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+/* Courses */
+.main-course {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.course-box {
+  padding: 10px 10px 30px 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.course-box ul {
+  list-style: none;
+  display: flex;
+}
+.course-box ul li {
+  margin: 10px;
+  color: gray;
+  cursor: pointer;
+}
+.course-box ul .active {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+.course-box .course {
+  display: flex;
+}
+.box {
+  width: 33%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background: rgb(235, 233, 233);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.box p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.box button {
+  background: #000;
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 10px;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.box button:hover {
+  background: rgba(0, 0, 0, 0.842);
+}
+.box i {
+  font-size: 7rem;
+  float: right;
+  margin: -20px 20px 20px 0;
+}
+.html {
+  color: rgb(25, 94, 54);
+}
+.css {
+  color: rgb(104, 179, 35);
+}
+.js {
+  color: rgb(28, 98, 179);
 }
 
-.card:hover {
-  transform: translateY(-4px);
+.product-list {
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc; /* Add a border between title and products */
+  padding: 10px 0;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc; /* Add a border between products */
+}
+
+.product span {
+  flex: 1; /* Equal width for each column */
+}
+
+.product span:last-child {
+  flex: 0 0 auto; /* Fixed width for the action column */
 }
