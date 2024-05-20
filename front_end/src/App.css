@@ -60,6 +60,10 @@ nav .fas {
   top: 12px;
   margin-left: 10px;
 }
+li:hover {
+  background: #eee;
+  color: #747bff;
+}
 a:hover {
   background: #eee;
 }

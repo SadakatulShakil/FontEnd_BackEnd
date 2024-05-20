@@ -18,6 +18,17 @@ const formatError = (errors) => {
   return { message: errorMessage, errors: formattedErrors };
 };
 
+//get all users
+const getAllUser = asyncHandler(async (request, response) => {
+  const user = await User.find();
+  const responseData = {
+    status: "SUCCESS",
+    data: user,
+    message: "Product List",
+  };
+  response.status(200).json(responseData);
+});
+
 //register User
 const registerUser = asyncHandler(async (request, response) => {
   const { name, email, phone, password } = request.body;
@@ -147,6 +158,7 @@ const userProfile = asyncHandler(async (request, response) => {
 });
 
 module.exports = {
+  getAllUser,
   registerUser,
   loginUser,
   userProfile,
