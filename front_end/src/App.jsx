@@ -2,6 +2,7 @@ import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import logo from "./assets/admin_logo.png";
 import NewsNavigation from "../src/NewsNavigation";
+import EventsNavigation from "../src/EventsNavigation";
 import axios from "axios";
 import { useEffect } from "react";
 
@@ -9,9 +10,13 @@ function App() {
   const [users, setUser] = useState([]);
   const [products, setProduct] = useState([]);
   const [showNewsNav, setShowNewsNav] = useState(false);
+  const [showEventsNav, setShowEventsNav] = useState(false);
 
   const toggleNewsNav = () => {
     setShowNewsNav(!showNewsNav);
+  };
+  const toggleEventsNav = () => {
+    setShowEventsNav(!showEventsNav);
   };
 
   useEffect(() => {
@@ -42,70 +47,9 @@ function App() {
 
   return (
     <div class="container">
-      <nav>
-        <ul>
-          <li>
-            <a class="logo">
-              <img src={logo} alt=""></img>
-              <span class="nav-item">Shark</span>
-            </a>
-          </li>
-          <li onClick={"/dashboard"}>
-            <a href="/dashboard">
-              <i class="fas fa-home"></i>
-              <span class="nav-item">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fas fa-user"></i>
-              <span class="nav-item">Profile</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fas fa-wallet"></i>
-              <span class="nav-item">Events</span>
-            </a>
-          </li>
-          <li onClick={toggleNewsNav}>
-            <a>
-              <i className="fas fa-chart-bar"></i>
-              <span className="nav-item">News</span>
-            </a>
-            {showNewsNav && <NewsNavigation />}
-          </li>
-          <li>
-            <a>
-              <i class="fas fa-tasks"></i>
-              <span class="nav-item">Members</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fas fa-cog"></i>
-              <span class="nav-item">Settings</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fas fa-question-circle"></i>
-              <span class="nav-item">Help</span>
-            </a>
-          </li>
-          <li>
-            <a class="logout">
-              <i class="fas fa-sign-out-alt"></i>
-              <span class="nav-item">Log out</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
       <section class="main">
         <div class="main-top">
-          <h1>Summery</h1>
-          <i class="fas fa-user-cog"></i>
+          <h1>Dashboard</h1>
         </div>
         <div class="main-skills">
           <div class="card">
