@@ -1,80 +1,123 @@
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../App.css";
-import logo from "../assets/admin_logo.png";
-import NewsNavigation from "../NewsNavigation";
-import EventsNavigation from "../EventsNavigation";
 import axios from "axios";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreateNews() {
-  const [users, setUser] = useState([]);
-  const [products, setProduct] = useState([]);
-  const [showNewsNav, setShowNewsNav] = useState(false);
-  const [showEventsNav, setShowEventsNav] = useState(false);
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const toggleNewsNav = () => {
-    setShowNewsNav(!showNewsNav);
-  };
-  const toggleEventsNav = () => {
-    setShowEventsNav(!showEventsNav);
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    console.log("test2");
+    // Validation for empty submission
+    if (!title || !author || !content) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("author", author);
+    formData.append("content", content);
+    if (image) {
+      formData.append("image", image);
+    }
+
+    // Call the add news API
     axios
-      .get("http://localhost:3000/api/products")
+      .post("http://localhost:3000/api/news", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((response) => {
-        console.log({ res: response });
-        setProduct(response.data.data);
+        console.log(response.data);
+        toast.success("News added successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTitle("");
+        setAuthor("");
+        setContent("");
+        setImage(null);
       })
       .catch((error) => {
         console.log(error);
+        setSuccessMessage("");
       });
-  }, []);
-
-  useEffect(() => {
-    console.log("test1");
-    axios
-      .get("http://localhost:3000/api/users/all")
-      .then((response) => {
-        console.log({ res: response });
-        setUser(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  };
 
   return (
-    <div class="container">
-      <section class="main">
-        <div class="main-top">
+    <div className="container">
+      <section className="main">
+        <div className="main-top">
           <h1>Create News</h1>
         </div>
-        <div class="main-skills">
-          <div class="card">
-            <i class="fas fa-users"></i>
-            <h3>Total members</h3>
-            <h5>{users.length}</h5>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              placeholder="Enter title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
           </div>
-          <div class="card">
-            <i class="fas fa-chart-bar"></i>
-            <h3>Total news</h3>
-            <h5>120</h5>
+
+          <div>
+            <label htmlFor="author">Author:</label>
+            <input
+              type="text"
+              id="author"
+              placeholder="Enter author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
+            />
           </div>
-          <div class="card">
-            <i class="fas fa-wallet"></i>
-            <h3>Total Events</h3>
-            <h5>120</h5>
+
+          <div>
+            <label htmlFor="content">Content:</label>
+            <textarea
+              id="content"
+              placeholder="Enter content (max 500 words)"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              maxLength={500}
+              required
+            />
           </div>
-          <div class="card">
-            <i class="fas fa-tasks"></i>
-            <h3>Total Products</h3>
-            <h5>{products.length}</h5>
+
+          <div>
+            <label htmlFor="image">Image (optional):</label>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
           </div>
-        </div>
+
+          <button type="submit">Submit</button>
+        </form>
+        {successMessage && <p>{successMessage}</p>}
       </section>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,23 +1,11 @@
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import logo from "./assets/admin_logo.png";
-import NewsNavigation from "../src/NewsNavigation";
-import EventsNavigation from "../src/EventsNavigation";
 import axios from "axios";
 import { useEffect } from "react";
 
 function App() {
   const [users, setUser] = useState([]);
   const [products, setProduct] = useState([]);
-  const [showNewsNav, setShowNewsNav] = useState(false);
-  const [showEventsNav, setShowEventsNav] = useState(false);
-
-  const toggleNewsNav = () => {
-    setShowNewsNav(!showNewsNav);
-  };
-  const toggleEventsNav = () => {
-    setShowEventsNav(!showEventsNav);
-  };
 
   useEffect(() => {
     console.log("test1");
@@ -35,7 +23,7 @@ function App() {
   useEffect(() => {
     console.log("test2");
     axios
-      .get("http://localhost:3000/api/products")
+      .get("http://localhost:3000/api/news")
       .then((response) => {
         console.log({ res: response });
         setProduct(response.data.data);

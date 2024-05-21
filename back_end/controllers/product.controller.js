@@ -4,16 +4,16 @@ const asyncHandler = require("express-async-handler");
 
 //add product
 const createProduct = asyncHandler(async (request, response) => {
-  const { name, quantity, price, image } = request.body;
+  const { title, author, content, image } = request.body;
 
-  if (!name || !quantity || !price) {
+  if (!title || !author || !content) {
     response.status(400);
     throw new Error("All fields are required");
   }
   const product = await Product.create({
-    name,
-    quantity,
-    price,
+    title,
+    author,
+    content,
   });
 
   const responseData = {

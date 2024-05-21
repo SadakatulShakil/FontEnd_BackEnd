@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import logo from "./assets/admin_logo.png";
+import logo from "../assets/admin_logo.png";
 import NewsNavigation from "./NewsNavigation";
 import EventsNavigation from "./EventsNavigation";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

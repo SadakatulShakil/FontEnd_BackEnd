@@ -5,10 +5,10 @@ const EventsNavigation = () => {
     <div className="events-nav">
       <ul>
         <li>
-          <a href="/news/create">Create Events</a>
+          <a href="/events/create">Create Events</a>
         </li>
         <li>
-          <a href="/news/all">All Events</a>
+          <a href="/events/all">All Events</a>
         </li>
       </ul>
     </div>

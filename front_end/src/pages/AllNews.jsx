@@ -1,31 +1,29 @@
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../App.css";
-import logo from "../assets/admin_logo.png";
-import NewsNavigation from "../NewsNavigation";
-import EventsNavigation from "../EventsNavigation";
 import axios from "axios";
 import { useEffect } from "react";
 
+// Function to truncate content string to a maximum number of words
+function truncateContent(content, maxWords) {
+  const words = content.split(" ");
+  if (words.length <= maxWords) {
+    return content;
+  }
+  const truncatedWords = words.slice(0, maxWords);
+  return `${truncatedWords.join(" ")}...`;
+}
+
 function AllNews() {
-  const [users, setUser] = useState([]);
-  const [showNewsNav, setShowNewsNav] = useState(false);
-  const [showEventsNav, setShowEventsNav] = useState(false);
-
-  const toggleNewsNav = () => {
-    setShowNewsNav(!showNewsNav);
-  };
-  const toggleEventsNav = () => {
-    setShowEventsNav(!showEventsNav);
-  };
-
+  const [news, setNews] = useState([]);
+  const maxContentWords = 10;
   useEffect(() => {
     console.log("test1");
     axios
-      .get("http://localhost:3000/api/users/all")
+      .get("http://localhost:3000/api/news")
       .then((response) => {
         console.log({ res: response });
-        setUser(response.data.data);
+        setNews(response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -37,24 +35,26 @@ function AllNews() {
       <section class="main">
         <section class="main-course">
           <div class="main-top">
-            <h1>All News (count = {users.length})</h1>
+            <h1>All News ({news.length})</h1>
           </div>
           <div class="course-box">
             <div className="product-list">
               <div className="title">
-                <span>Name</span>
-                <span>Email</span>
-                <span>Phone</span>
+                <span>Title</span>
+                <span>author</span>
+                <span>Content</span>
                 <span>Action</span>
               </div>
               <div className="list">
-                {users.map((user) => (
-                  <div key={user._id} className="product">
-                    <span>{user.name}</span>
-                    <span>{user.email}</span>
-                    <span>{user.phone}</span>
+                {news.map((allNews) => (
+                  <div key={allNews._id} className="product">
+                    <span>{allNews.title}</span>
+                    <span>{allNews.author}</span>
                     <span>
-                      <button>Action</button>
+                      {truncateContent(allNews.content, maxContentWords)}
+                    </span>
+                    <span>
+                      <button>Details</button>
                     </span>{" "}
                     {/* Assuming this is your "buy" icon */}
                   </div>

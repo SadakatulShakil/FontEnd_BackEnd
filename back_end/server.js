@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(forms.array());
 ///Routes
-app.use("/api/products", productRoute);
+app.use("/api/news", productRoute);
 app.use("/api/users", userRoute);
 app.use(errorHandler);
 

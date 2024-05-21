@@ -2,27 +2,22 @@ const mongoose = require("mongoose");
 
 const ProductSchema = mongoose.Schema(
   {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      require: true,
-      ref: "User",
-    },
-    name: {
+    title: {
       type: String,
       required: [true, "Please enter product name"],
       minlength: [3, "Product name must be at least 3 characters long"],
     },
-    quantity: {
-      type: Number,
+    author: {
+      type: String,
       required: true,
-      default: 0,
-      min: [0, "Quantity cannot be negative"],
+      default: "",
+      min: ["Quantity cannot be negative"],
     },
-    price: {
-      type: Number,
+    content: {
+      type: String,
       required: true,
-      default: 0,
-      min: [0, "Price cannot be negative"],
+      default: "",
+      min: ["Price cannot be negative"],
     },
     image: {
       type: String,
@@ -34,5 +29,5 @@ const ProductSchema = mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product", ProductSchema);
+const Product = mongoose.model("News", ProductSchema);
 module.exports = Product;
