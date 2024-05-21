@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../App.css";
 import axios from "axios";
 import { useEffect } from "react";
+import Header from "../utils/Header";
 
 // Function to truncate content string to a maximum number of words
 function truncateContent(content, maxWords) {
@@ -32,6 +33,7 @@ function AllNews() {
 
   return (
     <div class="container">
+      <Header />
       <section class="main">
         <section class="main-course">
           <div class="main-top">

@@ -6,11 +6,13 @@ import AllNews from "../pages/AllNews";
 import { Routes, Route, Link } from "react-router-dom";
 import AllEvents from "../pages/AllEvents";
 import CreateEvents from "../pages/CreateEvents";
+import LoginPage from "../pages/LoginPage";
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/dashboard" element={<App />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/news/create" element={<CreateNews />} />
       <Route path="/events/create" element={<CreateEvents />} />
       <Route path="/news/all" element={<AllNews />} />

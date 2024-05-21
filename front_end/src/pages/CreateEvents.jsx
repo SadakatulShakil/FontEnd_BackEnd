@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../App.css";
 import axios from "axios";
 import { useEffect } from "react";
+import Header from "../utils/Header";
 
 function CreateEvents() {
   const [users, setUser] = useState([]);
@@ -36,6 +37,7 @@ function CreateEvents() {
 
   return (
     <div class="container">
+      <Header />
       <section class="main">
         <div class="main-top">
           <h1>Create Events</h1>

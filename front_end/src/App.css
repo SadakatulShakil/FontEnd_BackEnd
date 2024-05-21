@@ -255,3 +255,207 @@ button[type="submit"]:hover {
   margin-top: 10px;
   font-weight: bold;
 }
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  background-image: url("https://dca-api.appswind.com/build/assets/auth-bg-ambHwOYC.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.app-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stats-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stats-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.degree-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e9e9;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.degree-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.degree-icon {
+  font-size: 1.2rem;
+}
+
+.degree-name {
+  font-weight: bold;
+}
+
+.degree-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  font-size: 0.8rem;
+}
+
+.status-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.chart-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.chart-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.legend-label {
+  font-size: 0.8rem;
+}
+
+.add-product-btn {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.app-right {
+  width: 600px;
+}
+
+.login-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-header-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.login-header {
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.login-input {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.forgot-password-btn {
+  background-color: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

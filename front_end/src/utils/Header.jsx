@@ -80,15 +80,6 @@ function Header() {
           </li>
         </ul>
       </nav>
-
-      <section class="main">
-        <div class="main-top">
-          <i class="fas fa-user-cog"></i>
-        </div>
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
-      </section>
     </div>
   );
 }

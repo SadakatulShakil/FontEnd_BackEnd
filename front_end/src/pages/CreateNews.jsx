@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../utils/Header";
 
 function CreateNews() {
   const [title, setTitle] = useState("");
@@ -62,6 +63,7 @@ function CreateNews() {
 
   return (
     <div className="container">
+      <Header />
       <section className="main">
         <div className="main-top">
           <h1>Create News</h1>
